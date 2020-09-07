@@ -29,5 +29,16 @@ module Bookers
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.assets false
+      g.helper false
+      g.jbuilder false
+      g.test_framework :rspec,
+                       controller_specs: false,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false
+    end
   end
 end
