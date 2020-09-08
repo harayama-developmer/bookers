@@ -1,29 +1,20 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update]
 
   def index
     @users = User.all
   end
 
   def show
+    @books = @user.books
   end
 
   def edit
   end
 
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
-    else
-      render :new
-    end
-  end
-
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, success: 'You have updated user successfully.'
     else
       render :edit
     end
@@ -36,6 +27,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 end

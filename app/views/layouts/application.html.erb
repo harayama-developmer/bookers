@@ -54,6 +54,9 @@
     <div class="body">
       <div class="container">
         <p id="notice"><%= notice %></p>
+        <% if success %>
+          <p><%= success %></p>
+        <% end  %>
         <%= yield %>
       </div>
     </div>

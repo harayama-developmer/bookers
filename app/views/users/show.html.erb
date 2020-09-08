@@ -1,17 +1,9 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="row">
+  <div class="col-xs-3">
+    <%= render 'users/info', user: @user, book: Book.new %>
+  </div>
+  <div class="col-xs-9">
+    <%= render 'books/list', books: @user.books %>
+  </div>
+</div>
 
-<p>
-  <strong>Introduction:</strong>
-  <%= @user.introduction %>
-</p>
-
-<p>
-  <strong>Profile image:</strong>
-  <%= @user.profile_image_id %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
