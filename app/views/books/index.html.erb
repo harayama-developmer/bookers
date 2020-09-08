@@ -1,3 +1,4 @@
+<%# Error messages %>
 <% if @book.errors.any? %>
   <div id="error_explanation">
     <h3><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h3>
@@ -9,6 +10,7 @@
     </ul>
   </div>
 <% end %>
+<%# /Error messages %>
 <div class="row">
   <div class="col-xs-3">
     <%= render 'users/info', user: current_user, book: @book %>

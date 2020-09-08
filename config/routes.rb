@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # Devise
   devise_for :users
 
+  # Content pages
   resources :users, only: %i[index show edit update]
   resources :books, only: %i[index show edit create update destroy]
 

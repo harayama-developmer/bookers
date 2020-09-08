@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h1>Editing Book</h1>
+    <%# Error messages %>
     <% if @book.errors.any? %>
       <div id="error_explanation">
         <h3><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h3>
@@ -11,6 +12,8 @@
         </ul>
       </div>
     <% end %>
+    <%# /Error messages %>
+    <%# Book form %>
     <%= form_with(model: @book, local: true, id: "edit_book_#{@book.id}") do |form| %>
       <div class="field row">
         <%= form.label :title %>
@@ -28,6 +31,7 @@
     <% end %>
     <%= link_to "Show", @book, class: "book_#{@book.id}" %> |
     <%= link_to "Back", books_path, class: "back" %>
+    <%# /Book form %>
   </div>
   <div class="col-md-3"></div>
 </div>

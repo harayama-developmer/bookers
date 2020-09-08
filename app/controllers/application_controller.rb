@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
     user_path(resource)
   end
 
+  # NOTE: deviseの設定で emailではなく`config.authentication_keys = [:name]`にしているため、sign_upでemailを追加する
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 end
