@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
+  before_action :redirect_mypage_unless_me, only: %i[edit update]
 
   def index
     @users = User.all
@@ -28,5 +29,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
+  end
+
+  def redirect_mypage_unless_me
+    redirect_to user_path(current_user) unless @user == current_user
   end
 end

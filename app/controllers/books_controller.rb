@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
+  before_action :redirect_index_unless_mine, only: %i[edit update destroy]
 
   def index
     @books = Book.all
@@ -43,5 +44,9 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :body)
+  end
+
+  def redirect_index_unless_mine
+    redirect_to books_path unless @book.user == current_user
   end
 end
