@@ -66,6 +66,7 @@ gem 'jquery-rails'
 
 # For production
 gem 'dotenv-rails'
+gem 'refile-s3'
 group :production do
   gem 'mysql2'
 end

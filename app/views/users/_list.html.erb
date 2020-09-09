@@ -11,7 +11,7 @@
     <% users.each do |user| %>
       <tr>
         <td>
-          <%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg", alt: user.profile_image_id? ? "Profile image" : "No image icon" %>
+          <%= image_tag attachment_url(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg"), class: profile_image_class(user), alt: profile_image_alt(user) %>
         </td>
         <td><%= user.name %></td>
         <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>

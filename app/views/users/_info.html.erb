@@ -1,5 +1,5 @@
 <h2>User info</h2>
-<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", alt: user.profile_image_id? ? "Profile image" : "No image" %>
+<%= image_tag attachment_url(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"), class: profile_image_class(user), alt: profile_image_alt(user) %>
 <table class="table">
   <tbody>
     <tr></tr>
